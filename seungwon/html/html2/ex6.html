@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 관련 태그</title>
+    <style>
+    /* 테이블 스타일  */
+    .tb1 { width:800px; margin:10px auto; }    
+    .tb1 th { background-color:deeppink; color:#fff; line-height: 42px; }
+    .tb1 td { border-bottom: 2px solid #333; text-align: center;
+         line-height: 38px; }
+    </style>
+</head>
+<body>
+    <!-- 테이블 태그 : table, caption, thead, tbody, tfoot, tr, th, td -->
+    <h1>테이블 태그</h1>
+    <table class="tb1">
+        <caption>
+            <h2>천재교육 풀스택 2기 성적표</h2>
+        </caption>
+        <thead>
+            <tr><th>번호</th><th>이름</th><th>점수</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>이은영</td><td>80</td></tr>
+            <tr><td>2</td><td>신승원</td><td>70</td></tr>
+            <tr><td>3</td><td>구예진</td><td>85</td></tr>
+            <tr><td>4</td><td>김기태</td><td>100</td></tr>
+            <tr><td>5</td><td>이소윤</td><td>90</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="3">전원 점수가 통과점수 이상임</td></tr>
+        </tfoot>
+    </table>
+</body>
+</html>
