@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 기본 02 - 출력의 방향</title>
+    <style>
+      #res3 {
+        background-color: rgb(234, 158, 113);
+        width: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btn1" onclick="fnc1()">문서에 출력</button>
+    <button type="button" id="btn2" onclick="fnc2()">요소에 출력</button>
+    <button type="button" id="btn3" onclick="fnc3()">콘솔에 출력</button>
+    <button type="button" id="btn4" onclick="fnc4()">알림창 출력</button>
+    <button type="button" id="btn5" onclick="fnc5()">확인창 출력</button>
+    <button type="button" id="btn6" onclick="fnc6()">입력창 출력</button>
+    <a href="javascript:;" id="btn7" onclick="fnc7()">링크 버튼1</a>
+    <a href="javascript:none;" title="링크데이터" id="btn8" onclick="fnc8()"
+      >링크 버튼2</a
+    >
+    <hr />
+    <div id="res1"></div>
+    <div id="res2"></div>
+    <div id="res3"></div>
+
+    <script>
+      var fnc1 = function () {
+        document.write("<h2>문서에 출력 - fnc1()</h2>");
+      };
+      var fnc2 = function () {
+        document.getElementById("res1").innerHTML = "<h2>요소에 출력</h2>";
+      };
+      var fnc3 = function () {
+        console.log("콘솔에 출력");
+      };
+      var fnc4 = function () {
+        alert("알림창\n출력");
+      };
+      var fnc5 = function () {
+        var res2 = document.getElementById("res2");
+        if (confirm("확인창\t확인")) {
+          res2.innerHTML = "<em> 확인을 누르셨습니다.</em>";
+        } else {
+          res2.innerHTML = "<ins> 취소를 누르셨습니다.</ins>";
+        }
+      };
+      var fnc6 = function () {
+        var name = prompt("이름 : ");
+        var age = parseInt(prompt("나이 : "));
+        var hobby = prompt("취미 : ");
+        var res3 = document.getElementById("res3");
+        res3.style.color = "rgb(255,220,184)";
+        var str = "<ul>";
+        str = str + "<li> 이름 : " + name + "</li>";
+        str = str + "<li> 나이 : " + age + "</li>";
+        str = str + "</ul>";
+        res3.innerHTML = str;
+      };
+      var fnc7 = function () {
+        alert("인라인 이벤트7");
+      };
+      var fnc8 = function () {
+        window.open("javascript01.html");
+      };
+    </script>
+  </body>
+</html>
