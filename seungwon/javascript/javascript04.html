@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본 4 = 비교연산, 논리연산, 기타연산</title>
+    <script></script>
+</head>
+<body>
+    <script>
+        var x=200, y=300, z=100;
+        document.write("<h2>대입연산자</h2>")
+        x+=3;
+        document.write("<br>x+=3 결과 : "+x); 
+        
+        x-=4;
+        document.write("<br>x-=4 결과 : "+x);
+        
+        x*=2;
+        document.write("<br>x*=2 결과 : "+x);
+        
+        x/=3;
+        document.write("<br>x/=3 결과 : "+x);
+        x%= 29;
+        document.write("<br>x%=29 결과 : "+x);
+        //자바스크립트 문법 준수 : ESLint 설치 
+        x=200;
+        y=200;
+        //증감연산자
+        document.write("<hr><h2>증감 연산자</h2>");
+        document.write("<br>x++ 결과 : "+(x++));
+        document.write("<br>++y 결과 : "+(++y));
+        document.write("<br>x-- 결과 : "+(x--));
+        document.write("<br>--y 결과 : "+(--y));
+
+        //비교연산자
+        document.write("<hr><h2>비교 연산자</h2>");
+        document.write("<br>x > y : "+(x>y));
+        document.write("<br>x < y : "+(x<y));
+        document.write("<br>x>= y : "+(x>=y));
+        document.write("<br>x<= y : "+(x<=y));
+        document.write("<br>x==y : "+(x==y));
+        document.write("<br>x!=y : "+(x!=y));
+        document.write("<br>x===y : "+(x===y)); //타입과 값이 모두 일치
+        document.write("<br>x!==y : "+(x!==y));// 타입 또는 값이 다르면
+
+        //논리연산자
+        document.write("<hr><h2>논리연산</h2>")
+        document.write("<br> x>y && y==200: "+(x>y && y==200));
+        document.write("<br> x>y || y==200: "+(x<y || y==200));
+        document.write("<br> !(x>y) : "+(!(x<y)));
+
+        /*
+        | &#124;
+        > &gt;
+        < &lt;
+        */
+        
+        //비트연산자
+        document.write("<hr><h2>비트연산</h2>");
+        document.write("<br> x & y : "+(x & y)); //and
+        document.write("<br> x | y : "+(x | y)); //or
+        document.write("<br> x ^ y : "+(x ^ y)); //xor
+        document.write("<br> y >> 2 : "+(y >> 2)); //오른쪽 shift => /2
+        document.write("<br> y << 2 : "+(y << 2)); //왼쪽 shift => *2
+        document.write("<br> ~y : "+(~y)); //complement(보수)
+
+        var a = (x>y) ? x : y;
+        document.write("<hr><h2>삼항 연산자</h2> -> (x>y) ? x : y => "+a+"<br><br>")
+
+        var a = typeof 1004;
+        document.write(a + "<br>");
+
+        var a = typeof 6.28;
+        document.write(a + "<br>");
+    </script>
+</body>
+</html>

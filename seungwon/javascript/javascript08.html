@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본08 - 이벤트</title>
+    <script></script>
+</head>
+<body>
+    <div id="box1" class="box" onclick="clk1()">박스1</div>
+    <div id="box2" class="box" ondblclick="clk2('신승원')">박스2</div>
+    <div id="box3" class="box">박스3</div>
+    <div id="box4" class="box">박스4</div>
+    <div id="box5" class="box">박스5</div>
+    <div id="box6" class="box">박스6</div>
+    <div id="box7" class="box">박스7</div>
+    <div id="box8" class="box">박스8</div>
+    <hr>
+    <div id="res1" class="res"></div>
+    <hr>
+    <script>
+    /*이벤트(Event) : 사용자가 어떤 특정 행위를 했을 때의 사건
+    구예진님이 버튼3을 마우스로 클릭
+    버튼3 => 이벤트타겟
+    클릭 => 이벤트핸들러
+    개발자는 버튼3을 마우스로 눌렀을 경우 해당 서비스를 진행하게 되는데
+    이처럼 이벤트란, 이벤트타겟, 이벤트핸들러, 서비스를 모두 합쳐 말하는 것 임.
+    
+    이벤트 적용법
+    
+    인라인 이벤트 : 해당하는 요소(태그)에 필요한 이벤트 핸들러를 속성(attribute)으로 직접 기술하는 것.
+    스크립트 이벤트 : 스크립트 태그의 안쪽에 필요한 이벤트 핸들러를 해당 요소를 선택하여 필요한 이벤트를 적용하는 것.
+
+    이벤트 종류 : 마우스, 키보드, 폼, 기타 이벤트
+    1. 마우스 이벤트 : click. dblclick, mouseover/mouseenter, mouseout/mouseleave, mousedown, mouseup, mousemove, contextmenu, scroll(wheel=mousewheel)
+    2. 키보드 이벤트 : keypress, keydown, keyup
+    3. 폼 관련 이벤트 : focus, blur, change, submit, reset, select
+    4. 기타 이벤트 : load, abort, unload, resize, scroll(스크롤바를 움직일 때)
+    */ 
+        
+        function clk1(){
+            alert("어서오세요")
+        }
+
+        function clk2(a){
+            alert(a+"(이)가 오셨군요^^ 더블클릭")
+
+        }
+        var box = document.getElementsByClassName("box");
+        for(var i=2; i<box.length; i++){
+            box[i].addEventListener("click", function(e){
+                alert(e.target.innerText);
+            });
+        }
+        //document.getElementById("box3").addEventListener("click", function(){})
+    </script>
+    <form action="" id="join_form" onsubmit="return join(this)" method="post"> 
+        <fieldset>
+            <legend>가입 정보</legend>
+        <table>
+            <tbody>
+                <tr>
+                    <th><label for="field1">아이디</label></th>
+                    <td><input type="text" name="field1" id="field1" required autofocus></td>
+                </tr>
+                <tr>
+                    <th><label for="field2">비밀번호</label></th>
+                    <td><input type="password" name="field2" id="field2" required autofocus></td>
+                </tr>
+                <tr>
+                    <th><label for="field3">비밀번호 확인</label></th>
+                    <td><input type="password" name="field3" id="field3" required autofocus></td>
+                </tr>
+                <tr>
+                    <th><label for="field4">이름</label></th>
+                    <td><input type="text" name="field4" id="field4" required autofocus></td>
+                </tr>
+                <tr>
+                    <th><label for="field5">이메일</label></th>
+                    <td><input type="email" name="field5" id="field5" required autofocus></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="가입">
+                        <input type="reset" value="취소">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </fieldset>
+    </form>
+    <script>
+        //폼 입력 값에 대한 유효성 검증
+        function join(frm){
+            if(frm.field3.value==frm.field2.value){
+                alert("비밀번호와 비밀번호 확인이 다릅니다.");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
+
+//innerText는 속성 사이의 값을 가져올 때 
+//form은 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본 09 - BOM 객체</title>
+    <script>
+        /*
+        <자바스크립트 객체>
+        1. 외장객체 - 사용자 정의 객체 : 개발자가 필요에 따라 정의하여 사용하는 객체 
+        2. 내장객체-데이터형 객체(Date, String, Video, Audio, Number) : 특정 데이터형을 처리하기 위한 메소드와 속성 제공
+        3. BoM 객체 (window, screen ,document, navigater, location, history) : 브라우저를 제어할 목적으로 제공하는 메소드와 속성을 제공
+        4.DOM 객체 : document - 현재 문서 안에 있는 태그(요소)를 제어할 목적의 메소드와 속성을 제공 
+         */
+    </script>
+</head>
+<body>
+    <h2>BOM 객체(Browser Objects Model)</h2>
+    <p>window, screen, document, navigater, location, history</p>
+    <hr>
+    <button type="button" onclick="idcheck()">아이디 중복 체크</button>
+    <script>
+        /*fullscreen=yes|no|1|0 - 전체화면 모드의 여부
+        width=pixels - 창 너비
+        height=pixels - 창 높이
+        left = pixels - 왼쪽부터의 위치
+        top=pixels - 위쪽부터의 위치
+        location = yes|no|1|0 - 주소 표시줄 표시 여부
+        menubar =yes|no|1|0 - 메뉴바 표시 여부
+        toolbar yes|No|1|0 -툴바 표시 여부
+        status=yes|No|1|0 - 상태바 ''
+        titlebar=- "" - 스크롤바 표시 여부
+        scrollbar= " - 창의 크기조절 가능 여부*/
+    </script>
+
+    <script>
+        function idcheck(){
+            var id = document.getElementById("id");
+            var win1 = window.open("login.html", "child" /*_parent, _self*/, "width=400, height=300, top=100, left=100, location=no, menubar=no, toolbar = no");
+        }
+    </script>
+</body>
+</html>

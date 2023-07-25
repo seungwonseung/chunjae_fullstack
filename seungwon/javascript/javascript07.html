@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본 07 = 조건문 / 반복문 </title>
+</head>
+<body>
+    <h2>과목별 점수</h2>
+    <ul class="lst" id="lst1">
+        <li class="item">80</li>
+        <li class="item">100</li>
+        <li class="item">90</li>
+        <li class="item">95</li>
+        <li class="item">85</li>
+    </ul>
+    <hr>
+    <div id="tot"></div>
+    <div id="avg"></div>
+    <div id="pan"></div>
+    <div id="hak"></div>
+    <div id="remark"></div>
+    <div id="sang"></div>
+    <div class="btn-group">
+        <button type="button" onclick="compute()">계산</button>
+    </div>
+    <script>
+        //총점(tot) : 다섯 과목 점수의 합계
+        //평균(avg) : 총점 / 5
+        //판정(pan) : 모든 점수가 80점 이상이고, 평균이 70점 이상이면, "합격", 아니면 "불합격"
+        //학점(hak) : 평균이 90이상이면, "A", 80점 이상이면, "B", 70점 이상이면, "C", 70점 미만이면 "F"
+        //참고사항(remark) : 학점이 "A"이면, "고득점", "B"이면, "우수", "C"이면, "보통", 기타는"재평가"
+        //과목우수상(sang) : 어느 한 과목이라도 100이면, "과목우수", 아니면, "해당없음"
+        var tot = document.getElementById("tot");
+        var avg = document.getElementById("avg");
+        var pan = document.getElementById("pan");
+        var hak = document.getElementById("hak");
+        var remark = document.getElementById("remark");
+        var sang = document.getElementById("sang");
+        
+        
+
+        //총점 계산
+        var t = 0;
+        var item = document.getElementsByClassName("item");
+        for(i=0; i<item.length; i++){
+            t += parseInt(item[i].textContent);
+        }
+        console.log("총점 : "+t)
+        
+        //평균 계산
+        var a = t/item.length;
+        console.log("평균 : "+a)
+
+        //판정
+        var p = "합격";
+        if(a>=70){
+            for(var i=0; i<item.length; i++){
+                if(parseInt(item[i].textContent)<80){
+                    p ="불합격";
+                }
+            }
+        } else {
+            p = "불합격";
+        }
+        console.log("판정 : "+p);
+
+    </script>
+</body>
+</html>
