@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 응용01 - 계산기</title>
+</head>
+<body>
+    <div id="calculator">
+        <div class="cal_wrap">
+            <input type="text" id="display">
+            <table>
+                <tr>
+                    <td><button id="btn7" onclick="cal(7)">7</button></td>
+                    <td><button id="btn8" onclick="cal(7)">8</button></td>
+                    <td><button id="btn9" onclick="cal(7)">9</button></td>
+                    <td><button id="div" onclick="cal(7)">/</button></td>
+                </tr>
+                <tr>
+                    <td><button id="btn4" onclick="cal(7)">4</button></td>
+                    <td><button id="btn5" onclick="cal(7)">5</button></td>
+                    <td><button id="btn6" onclick="cal(7)">6</button></td>
+                    <td><button id="mul" onclick="cal('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td><button id="btn1" onclick="cal(7)">1</button></td>
+                    <td><button id="btn2" onclick="cal(7)">2</button></td>
+                    <td><button id="btn3" onclick="cal(7)">3</button></td>
+                    <td><button id="minus" onclick="cal(7)">-</button></td>
+                </tr>
+                <tr>
+                    <td><button id="btn0" onclick="cal(7)">0</button></td>
+                    <td><button id="pt">.</button></td>
+                    <td><button id="res">=</button></td>
+                    <td><button id="plus">+</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        var display = document.getElementById("display");
+        function cal(btn){
+            display.value = display.value + btn;
+        }
+        function rt(){ //eval()
+            display.value = "";
+        }
+    </script>
+</body>
+</html>

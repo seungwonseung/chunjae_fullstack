@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 응용 02 - 디지털 시계</title>
+    <style>
+        @font-face {
+            font-family: digital1;
+            src: url();
+        }
+        #watch {font-family: "digital1", sans-serif; display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <span id="watch"></span>
+    </div>
+    <script>
+    var watch = document.getElementById("watch");
+    function tt(){
+        var today = new Date(); //년월일시분초
+        var hour = today.getHours();
+        var hh, mm, ss, ampm;
+        var minute = today.getMinutes();
+        var second = today.getSeconds();
+        if(hour>=12){
+            ampm = "오후";
+            hh = hour - 12;
+        }else {
+            ampm = "오전";
+            hh = hour;
+        }
+
+        if(hh<=9){
+            hh = "0"+hh;
+        } else {
+            hh = hour;
+        }
+        
+        if(minute<=9){
+            mm = "0" + minute;
+        } else {
+            mm = minute;
+        }
+
+        if(second<=9){
+            ss = "0" + second;
+        }else {
+            ss = second;
+        }
+        watch.innerHTML = ampm + " " + hh + ":" + mm + ":" + second;
+    }
+    tt();
+    var intv = setInterval(function() {tt();}, 1000);
+    //18:3:2 => 오후 06:03:02
+    </script>
+</body>
+</html>
