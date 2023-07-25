@@ -7,9 +7,10 @@
     <style>
         @font-face {
             font-family: digital1;
-            src: url();
+            src: url(./fonts/DS-DIGI.TTF);
         }
         #watch {font-family: "digital1", sans-serif; display: block;
+        font-size: 100px;
         }
     </style>
 </head>
@@ -26,10 +27,10 @@
         var minute = today.getMinutes();
         var second = today.getSeconds();
         if(hour>=12){
-            ampm = "오후";
+            ampm = "PM";
             hh = hour - 12;
         }else {
-            ampm = "오전";
+            ampm = "AM";
             hh = hour;
         }
 
@@ -50,7 +51,7 @@
         }else {
             ss = second;
         }
-        watch.innerHTML = ampm + " " + hh + ":" + mm + ":" + second;
+        watch.innerHTML = ampm + " " + hh + ":" + mm + ":" + ss;
     }
     tt();
     var intv = setInterval(function() {tt();}, 1000);
