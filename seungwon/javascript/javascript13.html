@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 응용3 - 흐름제어</title>
+</head>
+<body>
+    <div>
+        <button class="btn" id="btn1">정보출력</button>
+        <button class="btn" id="btn2">현재URL</button>
+        <button class="btn" id="btn3">새로고침</button>
+        <button class="btn" id="btn4">사이트 이동</button>
+        <button class="btn" id="btn5">이동</button>
+        <button class="btn" id="btn6">뒤로 가기</button>
+        <button class="btn" id="btn7">앞으로 가기</button>
+        <button class="btn" id="btn8">원하는 곳으로 가기</button>
+    </div>
+    <div id="res"></div>
+    <div id="res2"></div>
+    <select name="sel" id="sel" onchange="moving()">
+        <option value="">--- 선택안함 ---</option>
+        <option value="http://www.naver.com">네이버</option>
+        <option value="http://www.daum.net">다음</option>
+        <option value="http://www.google.com">구글</option>
+    </select>
+    <script>
+    var html = "";
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var btn4 = document.getElementById("btn4");
+    var btn5 = document.getElementById("btn5");
+    var btn6 = document.getElementById("btn6");
+    var btn7 = document.getElementById("btn7");
+    var btn8 = document.getElementById("btn8");
+
+    var res = document.getElementById("res");
+    btn1.addEventListener("click", function(){
+        objectInfo();
+    });
+    function objectInfo(){
+        for(var key in history){
+            html += "<p>"+key+":"+history[key]+"</p>";
+        }
+        res.innerHTML = html; // 정보 출력 
+    }
+    btn2.addEventListener("click", function(){
+        res2.innerText = location.href;
+        setTimeout(function(){
+            location.href = "https://www.naver.com"; //속성 URL 이동 및 타임아웃
+        }, 2500);
+    });
+
+    btn3.addEventListener("click", function(){
+        location.reload(); //새로고침
+    });
+
+    btn4.addEventListener("click", function(){
+        location.replace("https://www.google.com") //메소드 사이트 이동, 사이트가 교체되어버려 뒤로 가기가 작동 x 
+    });
+
+    btn5.addEventListener("click", function(){
+        location.assign("https://www.daum.net"); // 이동, 뒤로가기 작동됨. 
+    });
+
+    btn6.addEventListener("click", function(){
+        history.back(<!--숫자 칸 만큼 뒤로 감-->); //뒤로 가기  
+    });
+
+    btn7.addEventListener("click", function(){ //앞으로 가기
+        history.forward();  
+    });
+
+    btn8.addEventListener("click", function(){//원하는 곳으로 가기
+        history.go(<!--숫자 단계만큼 앞으로 음수는 뒤로 감.-->);
+    });
+    </script>
+    
+    <button id="btn9" onclick="javascript:history.go(-1)">뒤로가기 - 버튼9</button>
+    <button id="btn10" onclick="javascript:location.reload()">새로고침 - 버튼10</button>
+    
+    <script>
+        function moving(){
+            var loc = document.getElementById("sel");
+            if(loc.value!=""){
+            //location.href = loc.value;
+            //location.replace(loc.value);
+            location.assign(loc.value);
+            }
+        }
+    </script>
+</body>
+</html>

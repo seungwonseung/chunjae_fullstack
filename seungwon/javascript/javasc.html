@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>아날로그 벽시계</title>
+    <style>
+    * { margin: 0; padding: 0; }
+
+    #clock { width: 274px; height:500px; margin:50px auto; position:relative; }
+    .clock_fr { position:relative; }    
+    #clock_bg, #clock_base, #second, #minute, #hour, #clock_weight { position:absolute; left:0; top:0; }
+    #clock_base, #second, #minute, #hour { top:65px; }
+    #clock_weight { top:328px; left:103px; transition:1s; transform-origin:center -4px;}
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <img src="clock_bg.png" alt="시계배경" id="clock_bg">
+        <div class="clock_fr">
+            <img src="clock_base.png" alt="시계틀" id="clock_base">
+            <img src="second.png" alt="초침" id="second">
+            <img src="minute.png" alt="분침" id="minute">
+            <img src="hour.png" alt="시침" id="hour">
+        </div>
+        <img src="clock_weight.png" alt="시계추" id="clock_weight">
+    </div>   
+    <script src="clock.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>동영상 제어</title>
+    <style>
+    .player { width:640px; margin: 0 auto; margin-top:20px; clear:both; position:relative; height: 100vh;  overflow-x:hidden; }  
+    .vdo_fr { width: 640px; height: 360px; position:relative; overflow:hidden; clear:both; }  
+    button { background-color:transparent; outline:0; border:0; }
+    #video { display:block;  position:absolute; }
+    #progress { height:10px; width:640px; position:relative; margin-top:20px; border-radius:6px; background:#333; overflow:hidden; }
+    #progressBar { width:0px; height:10px;  background:#c30;  }
+    #buttonbar { height:37px; padding:3px; background:#333; width: 100%; 
+    box-sizing:border-box; }
+    .player_btn, #buttonbar input { display:inline-block; cursor:pointer; }
+    .player_btn { margin: 6px; width:18px; height:18px; background-repeat:no-repeat;
+    background-image:url("controls2.png"); background-size:90px 90px; }
+    #restart { background-position:-48px 0px; background-image:url("controls2.png"); }
+    #rew { background-position:-24px 0px; background-image:url("controls2.png"); }
+    #play { background-position:0px -48px; position:relative; }
+    #play:after { content:"▶"; display:block; color:deepskyblue; margin-top:-8px; 
+font-size:10px; position:absolute; top:1px; left:0px; }
+    #pause { background-position:-72px -48px; display:none; position:relative; }
+    #pause:after { content:"||"; display:block; color:deepskyblue; margin-top:-8px; 
+font-size:10px; position:absolute; top:3px; left:0px; }
+    #stop { background-position:-48px -48px;  }
+    #fastFwd { background-position:-72px 0px;  }
+    #mute { background-position:0px 0px; background-image:url("controls2.png"); }
+    #unmute { background-position:0px -72px; display:none; }
+    #vmup { background-position:-48px -72px; }
+    #vmdown { background-position:0px -24px; background-image:url("controls2.png"); }
+    #sizeup { background-size:72px 72px; background-image:url("controls3.png"); 
+    background-position:0px 0px; }
+    #sizedown { background-size:72px 72px; background-image:url("controls3.png"); 
+    background-position:-24px 0px; }
+    #full { background-size:72px 72px; background-image:url("controls3.png"); 
+    background-position:-48px 0px; }
+    #original { background-size:72px 72px; background-image:url("controls3.png"); 
+    background-position:0px -24px; display:none; }
+    #currentTime { position:absolute; right:1.5%; top:46%; color:#fff; }
+    #volTxt { color:#fff; line-height: 10px;  width: 35px; text-align:center; padding: 0; }
+    </style>
+    </head>
+    <body>  
+    <div class="player">
+        <div class="vdo_fr">
+            <video id="video">
+                <source src="demo.mp4" type="video/mp4" />
+                <source src="demo.ogv" type="video/ogg" />
+                <source src="demo.webm" type="video/webm" />
+            </video>
+        </div>    
+        <div id="timebar">
+            <span id="currentTime"></span>
+        </div>
+        <div id="buttonbar">
+            <button id="restart" class="player_btn"></button>
+            <button id="rew" class="player_btn"></button>
+            <button id="play" class="player_btn"></button>
+            <button id="pause" class="player_btn"></button>
+            <button id="stop" class="player_btn"></button>
+            <button id="fastFwd" class="player_btn"></button>
+            <button id="mute" class="player_btn"></button>
+            <button id="unmute" class="player_btn"></button>
+            <input id="vol" type="range" value="500" min="0" max="1000">
+            <button id="vmup" class="player_btn"></button>
+            <button id="vmdown" class="player_btn"></button>
+            <button id="volTxt">100%</button>
+            <button id="sizeup" class="player_btn"></button>
+            <button id="sizedown" class="player_btn"></button>
+            <button id="full" class="player_btn"></button>
+            <button id="original" class="player_btn"></button>
+        </div> 
+        <div id="progress">
+            <div id="progressBar"></div>    
+        </div>   
+    </div>        
+    <script src="vdo.js"></script> 
+</body>
+</html>

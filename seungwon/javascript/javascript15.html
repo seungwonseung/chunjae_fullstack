@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 응용4 - navigator</title>
+</head>
+<body>
+    <div id="dics" ></div>
+    <button id="btn1" onclick="nav()">기기판별</button>
+    <button id="btn2" onclick="info()">브라우저 정보</button>
+    <div id="res"></div>
+    <script>
+        var dics = document.getElementById("dics");
+        var res = document.getElementById("res");
+        function nav(){
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if(isMobile){
+                dics.innerHTML = "<h2>모바일 기기</h2>";
+            } else {
+                dics.innerHTML = "<h2>데스크탑</h2>";
+            }
+        }
+        function info(){
+            var html = "";
+            for (var key in navigator){
+                html += "<h2>"+key+":"+navigator[key]+"</h2>";
+            }
+            res.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

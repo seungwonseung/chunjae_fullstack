@@ -4,38 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자바스크립트 응용01 - 계산기</title>
+    <style>
+       
+        @font-face {
+            font-family: digital1;
+            src: url(./fonts/DS-DIGII.TTF);
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        *{
+    
+            padding:0;
+        }
+
+        #display {
+            display: flex;
+            height: 20%;
+            border: 6px solid rgba(73, 73, 73,0.5);
+            margin-left: 2%;
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            font-size: xx-large;
+            font-family: 'digital1';
+            margin-right: 10px;
+            margin: 0 auto;
+            
+            
+}
+        
+        .btn_content{
+            border: 1px solid rgba(178, 196, 223, 0.0);
+            flex: content;
+            display: block
+            flex-direction: 
+            text-align: center;
+        }
+
+        .btn_numb{
+            background-color: rgba(73, 73, 73,0.5);
+            color: rgb(255, 255, 255);
+            font-family: 'digital1';
+            font-size: xx-large;
+            border-radius: 100px;
+        }
+        
+        .btn_oper1{
+            flex: 1 0 20%;
+            background-color: rgba(73, 73, 73,0.5);
+            color: rgb(255, 255, 255);
+            font-family: 'digital1';
+            font-size: xx-large;
+            border-radius: 200px;
+        }
+
+        .btn_oper2{
+            flex: 1 0 20%;
+            background-color: rgba(73, 73, 73,0.5);
+            color: rgb(255, 255, 255);
+            font-family: 'digital1';
+            font-size: xx-large;
+            border-radius: 200px;
+        }
+
+        .btn_oper3{
+            flex: 1 0 20%;
+            background-color: rgba(73, 73, 73,0.5);
+            color: rgb(255, 255, 255);
+            font-family: 'digital1';
+            font-size: 35px;
+            border-radius: 200px;
+            margin-left: 7px
+        }
+
+        .btn_oper4{
+            flex: 1 0 20%;
+            background-color: rgba(73, 73, 73,0.5);
+            color: rgb(255, 255, 255);
+            font-family: 'digital1';
+            font-size: 35px;
+            border-radius: 150px;
+        }
+
+        .btn_oper5{
+            flex: 1 0 20%;
+            background-color: rgba(73, 73, 73,0.5);
+            color: rgb(255, 255, 255);
+            font-family: 'digital1';
+            font-size: 35px;
+            border-radius: 200px;
+        }
+        
+        .btn_oper6{
+            flex: 1 0 20%;
+            background-color: rgba(73, 73, 73,0.5);
+            color: rgb(255, 255, 255);
+            font-family: 'digital1';
+            font-size: 35px;
+            border-radius: 200px;
+            margin-left: 4px;
+        }
+
+        td {
+           padding: 14px;
+           
+        }
+
+        tr{
+            margin-left: 40px; 
+            margin-bottom: ;
+
+        }
+
+        table{
+            margin-left: 35px;
+            background-color: rgb(178, 196, 223);
+            background-image: url("ogu1.jpg");
+            width: 307px;
+            height: 320px;
+            margin: 0 auto;
+            
+        }
+
+        span #watch {
+            margin: ;
+        }
+    </style>
 </head>
 <body>
     <div id="calculator">
         <div class="cal_wrap">
             <input type="text" id="display">
-            <table>
+            <table class ="tab">
                 <tr>
-                    <td><button id="btn7" onclick="cal(7)">7</button></td>
-                    <td><button id="btn8" onclick="cal(7)">8</button></td>
-                    <td><button id="btn9" onclick="cal(7)">9</button></td>
-                    <td><button id="div" onclick="cal(7)">/</button></td>
+                    <td colspan="4"><button class="btn_oper7" onclick="cl()">CLEAR</button></td>
                 </tr>
-                <tr>
-                    <td><button id="btn4" onclick="cal(7)">4</button></td>
-                    <td><button id="btn5" onclick="cal(7)">5</button></td>
-                    <td><button id="btn6" onclick="cal(7)">6</button></td>
-                    <td><button id="mul" onclick="cal('*')">*</button></td>
+                <tr class="btn_content">
+                    <td><button class="btn_numb" onclick="cal(7)">7</button></td>
+                    <td><button class="btn_numb" onclick="cal(8)">8</button></td>
+                    <td><button class="btn_numb" onclick="cal(9)">9</button></td>
+                    <td><button class="btn_oper1" onclick="cal('/')">/</button></td>
                 </tr>
-                <tr>
-                    <td><button id="btn1" onclick="cal(7)">1</button></td>
-                    <td><button id="btn2" onclick="cal(7)">2</button></td>
-                    <td><button id="btn3" onclick="cal(7)">3</button></td>
-                    <td><button id="minus" onclick="cal(7)">-</button></td>
+                <tr class="btn_content">
+                    <td><button class="btn_numb" onclick="cal(4)">4</button></td>
+                    <td><button class="btn_numb" onclick="cal(5)">5</button></td>
+                    <td><button class="btn_numb" onclick="cal(6)">6</button></td>
+                    <td><button class="btn_oper2" onclick="cal('*')">*</button></td>
                 </tr>
-                <tr>
-                    <td><button id="btn0" onclick="cal(7)">0</button></td>
-                    <td><button id="pt">.</button></td>
-                    <td><button id="res">=</button></td>
-                    <td><button id="plus">+</button></td>
+                <tr class="btn_content">
+                    <td><button class="btn_numb" onclick="cal(1)">1</button></td>
+                    <td><button class="btn_numb" onclick="cal(2)">2</button></td>
+                    <td><button class="btn_numb" onclick="cal(3)">3</button></td>
+                    <td><button class="btn_oper3" onclick="cal('-')">-</button></td>
+                </tr>
+                <tr class="btn_content">
+                    <td><button class="btn_numb" onclick="cal(0)">0</button></td>
+                    <td><button class="btn_oper4" onclick="cal('.')">.</button></td>
+                    <td><button class="btn_oper5" onclick="rt('=')">=</button></td>
+                    <td><button class="btn_oper6" onclick="cal('+')">+</button></td>
                 </tr>
             </table>
         </div>
+    </div>
+    <div id="wrap">
+        <span id="watch" class="cl"></span>
     </div>
     <script>
         var display = document.getElementById("display");
@@ -43,8 +175,51 @@
             display.value = display.value + btn;
         }
         function rt(){ //eval()
+            display.value = eval(display.value);
+        }
+        function cl(){
             display.value = "";
+            display.focus();
         }
     </script>
+    <script>
+        var watch = document.getElementById("watch");
+        function tt(){
+            var today = new Date(); //년월일시분초
+            var hour = today.getHours();
+            var hh, mm, ss, ampm;
+            var minute = today.getMinutes();
+            var second = today.getSeconds();
+            if(hour>=12){
+                ampm = "PM";
+                hh = hour - 12;
+            }else {
+                ampm = "AM";
+                hh = hour;
+            }
+    
+            if(hh<=9){
+                hh = "0"+hh;
+            } else {
+                hh = hour;
+            }
+            
+            if(minute<=9){
+                mm = "0" + minute;
+            } else {
+                mm = minute;
+            }
+    
+            if(second<=9){
+                ss = "0" + second;
+            }else {
+                ss = second;
+            }
+            watch.innerHTML = ampm + " " + hh + ":" + mm + ":" + ss;
+        }
+        tt();
+        var intv = setInterval(function() {tt();}, 1000);
+        //18:3:2 => 오후 06:03:02
+        </script>
 </body>
 </html>
